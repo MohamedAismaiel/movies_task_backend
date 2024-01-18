@@ -9,7 +9,6 @@ const apicache = require("apicache");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const PORT = process.env.PORT || 4000;
-
 const app = express();
 
 //Rate Limiting
@@ -43,8 +42,7 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1MjIyZTViOWIwMDY5NjIyZDUxMjZhNzE1YTA4MmIxMiIsInN1YiI6IjY1YTQ1Mjc5NmY0M2VjMDEzMTQ1YjNjYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.58PbCFbVeqECm2WPU28KYveRVQ5TQ6upXngsXShHnfo",
+    Authorization: process.env.API_BEARER_KEY,
   },
 };
 
